@@ -235,18 +235,6 @@ public class HookTrack implements IXposedHookLoadPackage {
                 }
         );
 
-      XposedHelpers.findAndHookMethod(
-          "android.app.ActivityManager",
-          lpparam.classLoader,
-          "getRunningAppProcesses",
-          new DumpMethodHook() {
-            @Override
-            protected void beforeHookedMethod(MethodHookParam param) {
-                Log.w(TAG, lpparam.packageName + "调用getRunningAppProcesses()获取了正在运行的App");
-            }
-          }
-      );
-
 
       XposedHelpers.findAndHookMethod(
           "android.app.ApplicationPackageManager",
